@@ -1,0 +1,82 @@
+<section class="p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <a routerLink="/posts/list" class="btn btn-light btn-sm">Back</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="hasPost()">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body bg-light-grey">
+            <div class="row">
+              <div class="col-md-2 text-center">
+                <img [src]="selectedPost.avatar" alt="" class="rounded-circle" width="70" height="70"><br>
+                <small class="font-weight-bold">{{selectedPost.name}}</small>
+              </div>
+              <div class="col-md-8">
+                <p>{{selectedPost.text}}</p>
+                <small>{{selectedPost.createdAt | date : 'dd-MM-yyyy'}}</small>
+              </div>
+            </div>
+            <!-- Create a Comment -->
+            <div class="container mt-3" *ngIf="hasUser()">
+              <div class="row">
+                <div class="col">
+                  <form (submit)="submitCreateComment()">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">
+                          <img [src]="user.avatar"  alt="" class="img-thumbnail rounded-circle" width="60" height="60">
+                        </span>
+                      </div>
+                      <textarea
+                        name="text"
+                        [(ngModel)]="text"
+                        rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
+                    </div>
+                    <div>
+                      <input type="submit" class="btn btn-teal btn-sm" value="Comment">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- display Comments -->
+<section class="p-3" *ngIf="selectedPost?.comments.length > 0">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card my-2" *ngFor="let comment of selectedPost.comments">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2">
+                <img [src]="comment.avatar" alt="" class="rounded-circle" width="60" height="60"><br>
+                <small class="font-weight-bold">{{comment.name}}</small>
+              </div>
+              <div class="col-md-8">
+                <p>{{comment.text}}</p>
+                <small>{{comment.date | date : 'dd-MM-yyyy'}}</small><br>
+                <button class="btn rgba-red-strong btn-sm" *ngIf="isAuthUser(comment)" (click)="clickDeleteComment(comment._id)">
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

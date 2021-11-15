@@ -1,0 +1,75 @@
+<section class="p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h3 text-teal">Welcome to a thriving tech community!</p>
+       
+        <p>
+          Discuss the Latest on Technology and trends. Be civil and supportive.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Create New Post -->
+<section *ngIf="hasUser()">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form (submit)="submitCreatePost()">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <img [src]="user.avatar" alt="" class="img-thumbnail rounded-circle" width="60" height="60">
+              </span>
+            </div>
+            <textarea
+              name="text"
+              [(ngModel)]="text"
+              rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
+          </div>
+          <div>
+            <input type="submit" class="btn btn-teal btn-sm" value="Post">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- List all Posts -->
+<section class="p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card my-2" *ngFor="let post of posts">
+          <div class="card-body bg-light-grey">
+            <div class="row">
+              <div class="col-md-2 text-center">
+                <img [src]="post.avatar" alt="" class="rounded-circle" width="75" height="75"><br>
+                <small class="font-weight-bold">{{post.name}}</small>
+              </div>
+              <div class="col-md-8">
+                <small class="h6">{{post.text}}</small><br>
+                <small>{{post.createdAt | date : 'dd-MM-yyyy'}}</small><br>
+                <button class="btn rgba-green-strong btn-sm" (click)="clickLikePost(post._id)">
+                  <i class="fa fa-thumbs-up"></i> {{post.likes.length}}
+                </button>
+                <button class="btn rgba-red-strong btn-sm" (click)="clickUnlikePost(post._id)">
+                  <i class="fa fa-thumbs-down"></i>
+                </button>
+                <a routerLink="/posts/{{post._id}}" class="btn rgba-blue-strong btn-sm">
+                  <i class="fab fa-facebook-messenger"></i> Discussions {{post.comments.length}}
+                </a>
+                <button class="btn rgba-red-strong btn-sm" *ngIf="isAuthUser(post)" (click)="clickDeletePost(post._id)">
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

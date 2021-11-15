@@ -1,0 +1,44 @@
+<section class="p-3">
+  <div class="container  animated zoomIn">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-teal">
+          <i class="fa fa-user-tie"></i> Developers</h2>
+        <p>Software developers are the creative and innovative masterminds behind software programs. Their work is largely focused on creating and building software programs for consumers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="loading">
+  <img src="../../../../assets/img/spinner.gif" class="d-block m-auto" alt="">
+</div>
+<section *ngIf="developers.length > 0">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card mt-3" *ngFor="let developer of developers">
+          <div class="card-body bg-light-grey">
+            <div class="row align-items-center">
+              <div class="col-md-2">
+                <img [src]="developer.user.avatar" alt="" class="img-fluid img-thumbnail">
+              </div>
+              <div class="col-md-3">
+                <h2>{{developer.user.name}}</h2>
+                <p class="h6">{{developer.designation}}</p>
+                <small>{{developer.company}}</small><br>
+                <small>{{developer.location}}</small><br>
+                <a routerLink="/developers/{{developer.user._id}}" class="btn btn-teal btn-sm">View Profile</a>
+              </div>
+              <div class="col-md-7">
+                <p *ngFor="let skill of developer.skills">
+                  <span class="badge badge-secondary p-1">
+                   <i class="fa fa-check-circle"></i> {{skill.toUpperCase()}}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

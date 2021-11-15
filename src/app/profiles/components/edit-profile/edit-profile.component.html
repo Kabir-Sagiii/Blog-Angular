@@ -1,0 +1,120 @@
+<section class="p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h2 text-teal">
+         <i class="fa fa-user-circle"></i> Edit Profile</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto dolorem eos explicabo numquam placeat rem. Aliquid ducimus in neque quos repellendus ullam? Adipisci aliquid beatae illum maxime quisquam sunt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--<pre>{{profile | json}}</pre>-->
+<section class="" *ngIf="hasProfile()">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <form (submit)="submitUpdateProfile()">
+          <div class="form-group">
+            <input
+              name="company"
+              [value]="profile.company"
+              (input)="changeProfile($event)"
+              type="text" class="form-control" placeholder="Company">
+          </div>
+          <div class="form-group">
+            <input
+              name="website"
+              [value]="profile.website"
+              (input)="changeProfile($event)"
+              type="text" class="form-control" placeholder="Website">
+          </div>
+          <div class="form-group">
+            <input
+              name="location"
+              [value]="profile.location"
+              (input)="changeProfile($event)"
+              type="text" class="form-control" placeholder="Location">
+          </div>
+          <div class="form-group">
+            <select
+              name="designation"
+              [value]="profile.designation"
+              (input)="changeProfile($event)"
+              class="form-control">
+              <option value="">Select Your Designation</option>
+              <option value="Junior Developer">Junior Developer</option>
+              <option value="Senior Developer">Senior Developer</option>
+              <option value="Tech Lead">Tech Lead</option>
+              <option value="Junior Project Manager">Junior Project Manager</option>
+              <option value="Senior Project Manager">Senior Project Manager</option>
+              <option value="Director">Director</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              name="skills"
+              [value]="profile.skills"
+              (input)="changeProfile($event)"
+              type="text" class="form-control" placeholder="Skills">
+          </div>
+          <div class="form-group">
+            <textarea
+              name="bio"
+              [value]="profile.bio"
+              (input)="changeProfile($event)"
+              rows="3" class="form-control" placeholder="Biography"></textarea>
+          </div>
+          <div class="form-group">
+            <input
+              name="githubUsername"
+              [value]="profile.githubUsername"
+              (input)="changeProfile($event)"
+              type="text" class="form-control" placeholder="Github UserName">
+          </div>
+          <hr>
+          <small class="mb-2 d-block">Social Links</small>
+          <div class="form-group">
+            <input
+              name="facebook"
+              [value]="social.facebook"
+              (input)="changeProfileSocial($event)"
+              type="text" class="form-control" placeholder="Facebook">
+          </div>
+          <div class="form-group">
+            <input
+              name="twitter"
+              [value]="social.twitter"
+              (input)="changeProfileSocial($event)"
+              type="text" class="form-control" placeholder="Twitter">
+          </div>
+          <div class="form-group">
+            <input
+              name="youtube"
+              [value]="social.youtube"
+              (input)="changeProfileSocial($event)"
+              type="text" class="form-control" placeholder="YouTube">
+          </div>
+          <div class="form-group">
+            <input
+              name="linkedin"
+              [value]="social.linkedin"
+              (input)="changeProfileSocial($event)"
+              type="text" class="form-control" placeholder="Linkedin">
+          </div>
+          <div class="form-group">
+            <input
+              name="instagram"
+              [value]="social.instagram"
+              (input)="changeProfileSocial($event)"
+              type="text" class="form-control" placeholder="Instagram">
+          </div>
+          <div>
+            <input type="submit" value="Update" class="btn btn-teal btn-sm">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div style="margin-bottom: 150px"></div>

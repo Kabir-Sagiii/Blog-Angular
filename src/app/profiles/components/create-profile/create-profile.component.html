@@ -1,0 +1,109 @@
+<section class="p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h2 text-teal">
+          <i class="fa fa-user-circle"></i> Create a Profile</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto dolorem eos explicabo numquam placeat rem. Aliquid ducimus in neque quos repellendus ullam? Adipisci aliquid beatae illum maxime quisquam sunt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--<pre>{{profile | json}}</pre>
+<pre>{{social | json}}</pre>-->
+<section class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <form (submit)="submitCreateProfile()">
+          <div class="form-group">
+            <input
+              name="company"
+              [(ngModel)]="profile.company"
+              type="text" class="form-control" placeholder="Company">
+          </div>
+          <div class="form-group">
+            <input
+              name="website"
+              [(ngModel)]="profile.website"
+              type="text" class="form-control" placeholder="Website">
+          </div>
+          <div class="form-group">
+            <input
+              name="location"
+              [(ngModel)]="profile.location"
+              type="text" class="form-control" placeholder="Location">
+          </div>
+          <div class="form-group">
+            <select
+              name="designation"
+              [(ngModel)]="profile.designation"
+              class="form-control">
+              <option value="">Select Your Designation</option>
+              <option value="Junior Developer">Junior Developer</option>
+              <option value="Senior Developer">Senior Developer</option>
+              <option value="Tech Lead">Tech Lead</option>
+              <option value="Junior Project Manager">Junior Project Manager</option>
+              <option value="Senior Project Manager">Senior Project Manager</option>
+              <option value="Director">Director</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input
+              name="skills"
+              [(ngModel)]="profile.skills"
+              type="text" class="form-control" placeholder="Skills">
+          </div>
+          <div class="form-group">
+            <textarea
+              name="bio"
+              [(ngModel)]="profile.bio"
+              rows="3" class="form-control" placeholder="Biography"></textarea>
+          </div>
+          <div class="form-group">
+            <input
+              name="githubUsername"
+              [(ngModel)]="profile.githubUsername"
+              type="text" class="form-control" placeholder="Github UserName">
+          </div>
+          <hr>
+          <small class="mb-2 d-block">Social Links</small>
+          <div class="form-group">
+            <input
+              name="facebook"
+              [(ngModel)]="social.facebook"
+              type="text" class="form-control" placeholder="Facebook">
+          </div>
+          <div class="form-group">
+            <input
+              name="twitter"
+              [(ngModel)]="social.twitter"
+              type="text" class="form-control" placeholder="Twitter">
+          </div>
+          <div class="form-group">
+            <input
+              name="youtube"
+              [(ngModel)]="social.youtube"
+              type="text" class="form-control" placeholder="YouTube">
+          </div>
+          <div class="form-group">
+            <input
+              name="linkedin"
+              [(ngModel)]="social.linkedin"
+              type="text" class="form-control" placeholder="Linkedin">
+          </div>
+          <div class="form-group">
+            <input
+              name="instagram"
+              [(ngModel)]="social.instagram"
+              type="text" class="form-control" placeholder="Instagram">
+          </div>
+          <div>
+            <input type="submit" value="Create" class="btn btn-teal btn-sm">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<div style="margin-bottom: 150px"></div>

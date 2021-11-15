@@ -1,0 +1,89 @@
+<section class="p-3">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h3 text-teal">
+          <i class="fa fa-graduation-cap"></i> Add Education</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eos inventore molestiae numquam, odit quidem quod vero? Beatae cum dicta eius excepturi, exercitationem incidunt, minus nesciunt non quasi reiciendis, ullam!</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <form (submit)="submitUpdateEducation()">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-light-grey text-teal">School</span>
+            </div>
+            <input
+              name="school"
+              [(ngModel)]="education.school"
+              type="text" class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-light-grey text-teal">Degree</span>
+            </div>
+            <input
+              name="degree"
+              [(ngModel)]="education.degree"
+              type="text" class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-light-grey text-teal">Field Of Study</span>
+            </div>
+            <input
+              name="fieldOfStudy"
+              [(ngModel)]="education.fieldOfStudy"
+              type="text" class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-light-grey text-teal">From</span>
+            </div>
+            <input
+              name="from"
+              [(ngModel)]="education.from"
+              type="date" class="form-control">
+          </div>
+          <div>
+            <div class="form-group form-check">
+              <input
+                name="current"
+                [(ngModel)]="education.current"
+                type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Current</label>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-light-grey text-teal">To</span>
+            </div>
+            <input
+              name="to"
+              [(ngModel)]="education.to"
+              type="date" class="form-control" [disabled]="education.current">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-light-grey text-teal">Description</span>
+            </div>
+            <textarea
+              name="description"
+              [(ngModel)]="education.description"
+              rows="3" class="form-control"></textarea>
+          </div>
+          <div>
+            <input type="submit" class="btn btn-teal btn-sm" value="Update">
+            <a routerLink="/profiles/dashboard" class="btn bg-light-grey btn-sm text-dark">back</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

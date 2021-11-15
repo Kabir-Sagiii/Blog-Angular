@@ -1,0 +1,6 @@
+<div *ngFor="let message of messages" class="alert alert-dismissible fixed-top animated slideInDown m-2"
+[class.alert-success]="message.color === 'success'"
+[class.alert-danger]="message.color === 'danger'">
+  <button class="close" data-dismiss="alert"><i class="fa fa-times-circle"></i></button>
+  <small class="font-weight-bold">{{message.message}}</small>
+</div>

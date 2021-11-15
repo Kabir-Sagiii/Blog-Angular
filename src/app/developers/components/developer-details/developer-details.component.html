@@ -1,0 +1,120 @@
+<section class="p-3">
+  <div class="container  animated zoomIn">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-teal" *ngIf="hasDeveloper()">
+          <i class="fa fa-user-tie"></i> {{developer.user.name}}'s Profile</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cum earum explicabo illo magni odit quaerat, quos saepe sint tempora? Asperiores autem deleniti error et laudantium, natus placeat unde vero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="loading && !hasDeveloper()">
+  <img src="../../../../assets/img/spinner.gif" class="d-block m-auto" alt="">
+</div>
+<section *ngIf="hasDeveloper()">
+  <div class="container bg-teal text-white text-center p-3">
+    <div class="row">
+      <div class="col">
+        <img [src]="developer.user.avatar" alt="" width="200" height="200" class="rounded-circle profile-img">
+        <h1>{{developer.user.name}}</h1>
+        <h5>{{developer.designation}}</h5>
+        <small>{{developer.location}}</small>
+        <div class="d-flex flex-row justify-content-center">
+          <div class="p-1">
+            <a href="{{developer.social.facebook}}" target="_blank" class="text-white"><i class="fab fa-facebook"></i></a>
+          </div>
+          <div class="p-1">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <div class="p-1">
+            <i class="fab fa-youtube"></i>
+          </div>
+          <div class="p-1">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="p-1">
+            <i class="fab fa-linkedin"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Bio -->
+<section>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col text-center">
+        <div class="card">
+          <div class="card-body bg-light-grey">
+            <h3>{{developer.user.name}}'s Biography</h3>
+            <p>{{developer.bio}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Skill Set -->
+<section>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col text-center">
+        <div class="card">
+          <div class="card-body bg-light-grey">
+            <h3>Skill Set</h3>
+            <span *ngFor="let skill of developer.skills">
+              <span class="badge badge-secondary mx-2">{{skill}}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Experience , Education -->
+<section class="mt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card" *ngIf="developer.experience.length > 0">
+          <div class="card-body bg-light-grey">
+            <p class="h3">Experience</p>
+            <ul class="list-group">
+              <li class="list-group-item mt-2" *ngFor="let exp of developer.experience">
+                <small>Title : {{exp.title}}</small><br>
+                <small>Company : {{exp.company}}</small><br>
+                <small>Location : {{exp.location}}</small><br>
+                <small>From : {{exp.from | date : 'dd-MMM-YYYY'}}</small><br>
+                <small>To : {{exp.to | date : 'dd-MMM-YYYY'}}</small><br>
+                <small>Current : {{exp.current}}</small><br>
+                <small>Description : {{exp.description}}</small><br>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card" *ngIf="developer.education.length > 0">
+          <div class="card-body bg-light-grey">
+            <p class="h3">Education</p>
+            <ul class="list-group">
+              <li class="list-group-item mt-2" *ngFor="let edu of developer.education">
+                <small>School : {{edu.school}}</small><br>
+                <small>Degree : {{edu.degree}}</small><br>
+                <small>Field Of Study : {{edu.fieldOfStudy}}</small><br>
+                <small>From : {{edu.from | date : 'dd-MMM-YYYY'}}</small><br>
+                <small>To : {{edu.to | date : 'dd-MMM-YYYY'}}</small><br>
+                <small>Current : {{edu.current}}</small><br>
+                <small>Description : {{edu.description}}</small><br>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-bottom: 150px"></section>
